@@ -80,8 +80,8 @@ export default function Sign(props) {
             <input type="submit" value="sign" />
           </div>
           <div className="signup-link">
-            Already a member?
-            {/* <Link to="/">Login now</Link> */}
+            Already a member?&nbsp;
+            <Link to="/login">Login now</Link>
           </div>
         </form>
       </div>

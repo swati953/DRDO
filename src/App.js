@@ -3,19 +3,30 @@ import "./App.css";
 import Login from "./component/Login";
 import Sign from "./component/Sign";
 import Additem from "./adminWork/Additem";
-import Fetchitems from "./userwork/Fetchitems";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
 import Itemstate from "./context/items/Itemstate";
+import Authstate from "./context/authentication/Authstate";
 import Navbar from "./component/Navbar";
 import Alogin from "./component/Alogin";
 import Alert from "./component/Alert";
 import { useState } from "react";
-import Sidebar from "./adminWork/Sidebar";
 import Ahome from "./adminWork/Ahome";
 import Iedit from "./adminWork/Iedit";
+import Uhome from "./userwork/Uhome";
+import Addtocart from "./userwork/Addtocart";
+
+import Userstate from "./context/usercart/Userstate";
 
 function App() {
   const [alert, setAlert] = useState(null);
+
   const showAlert = (message, type) => {
     setAlert({
       msg: message,
@@ -25,19 +36,19 @@ function App() {
       setAlert(null);
     }, 15000);
   };
-  
+
   return (
+    <Authstate>
+      <Userstate>
     <Itemstate>
       <Router>
         <Navbar />
         <Alert alert={alert} />
         <Switch>
           <Route exact path="/">
-            <Fetchitems />
+            <Login showAlert={showAlert} />
           </Route>
-          <Route exact path="/fetch">
-            <Fetchitems />
-          </Route>
+         
           <Route exact path="/alogin">
             <Alogin showAlert={showAlert} />
           </Route>
@@ -48,8 +59,7 @@ function App() {
             <Login showAlert={showAlert} />
           </Route>
           <Route exact path="/additem">
- <Additem />
-            
+            <Additem />
           </Route>
           <Route exact path="/edit">
             <Iedit />
@@ -57,9 +67,18 @@ function App() {
           <Route exact path="/ahome">
             <Ahome />
           </Route>
+          <Route exact path="/uhome">
+            <Uhome />
+          </Route>
+          <Route exact path="/addtocart">
+            <Addtocart />
+          </Route>
+         
         </Switch>
       </Router>
     </Itemstate>
+    </Userstate>
+    </Authstate>
   );
 }
 

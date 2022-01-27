@@ -5,6 +5,7 @@ const router = express.Router();
 const fetchuser = require('../middleware/fetchuser');
 const { body, validationResult } = require('express-validator');
 const Store = require('../models/Store');
+const Cart = require('../models/Cart');
 //Route 1:fetching all notes from login user /api/notes/fetchallnotes
 
 
@@ -60,6 +61,7 @@ router.put('/updateitem/:id', fetchuser, async(req, res) => {
         if (!note) { return res.status(404).send("Not found") }
         if (req.user.id === "616ff42252afeb357dc6df45") {
             note = await Store.findByIdAndUpdate(req.params.id, { $set: newNote }, { new: true })
+            let note1 = await Cart.findByIdAndUpdate(req.params.id, { $set: newNote }, { new: true })
             res.json(note);
         } else {
             res.json("Not allowded");
@@ -81,6 +83,7 @@ router.delete('/deleteitem/:id', fetchuser, async(req, res) => {
         if (!note) { return res.status(404).send("Not found") }
         if (req.user.id === "616ff42252afeb357dc6df45") {
             note = await Store.findOneAndDelete({ "_id": req.params.id })
+            let note1 = await Cart.findOneAndDelete({ "itemId": req.params.id })
             res.json({ note: note, "success": "item has been deletd" });
         } else {
             res.json({ "ERROR": "only admin can delete items" });

@@ -27,6 +27,7 @@ export default function Alogin(props) {
       localStorage.setItem("token", json.authtoken);
       console.log(json.authtoken);
       props.showAlert("Welcome Admin","primary");
+ 
       history.push("/ahome");
     }
     else
@@ -43,7 +44,7 @@ export default function Alogin(props) {
     <div className="container">
       <div className="wrapper">
         <div className="title">
-          <span>Login Form</span>
+          <span>Admin Login</span>
         </div>
         <form onSubmit={handleSubmit} novalidate>
           <div className="row">

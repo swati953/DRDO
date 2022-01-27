@@ -123,10 +123,11 @@ router.post('/loginA', [
         if (email == "admin@gmail.com" && password == "123456789") {
             const data = {
                 user: {
-                    id: user.id
+                    id: user.id,
+
                 }
             }
-            const authtoken = jwt.sign(data, JWT_SECRET);
+            const authtoken = jwt.sign(data, JWT_SECRET, );
             const success = true;
             res.json({ success, authtoken });
         } else {

@@ -6,6 +6,7 @@ export default function Login(props) {
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
+
   });
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,11 +25,10 @@ export default function Login(props) {
     if(json.success)
     {   //redirect to notes or home screen
         localStorage.setItem('token',json.authtoken);
+       
         props.showAlert("Welcome Back user..","primary");
-        history.push("/fetch");
-        
-
-    }
+        history.push("/uhome");
+        }
     else
     {
         props.showAlert("Please Login with the correct Email and Password","danger");
@@ -74,8 +74,8 @@ export default function Login(props) {
             <input type="submit" value="Login" />
           </div>
           <div className="signup-link">
-            Not a member?
-            {/* <Link to="/sign">Signup now</Link> */}
+            Not a member?&nbsp;
+            <Link to="/sign">Sign Up now</Link> 
           </div>
         </form>
       </div>

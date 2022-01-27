@@ -14,6 +14,7 @@ app.use(express.json());
 //available routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/store', require('./routes/store'));
+app.use('/api/cart', require('./routes/cart'));
 
 app.listen(port, () => {
     console.log(`SSPL listening at http://localhost:${port}`)

@@ -29,17 +29,17 @@ export default function Additem(props) {
     <div className="col-md-4">
         <Sidebar/>
     </div>
-    <div className="col-md-8" style={{backgroundColor:"blue"}}>
+    <div className="col-md-8">
     <div className="container">
       <form>
-        <div class="form-group row my-3 ">
-          <label for="itemName" class="col-sm-2 col-form-label">
+        <div className="form-group row my-3 ">
+          <label for="itemName" className="col-sm-2 col-form-label">
             Item Name
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="itemName"
               placeholder="ItemName"
               onChange={onchange} //to reflect changes in state
@@ -48,14 +48,14 @@ export default function Additem(props) {
             />
           </div>
         </div>
-        <div class="form-group row my-3 ">
-          <label for="itemQuantity" class="col-sm-2 col-form-label">
+        <div className="form-group row my-3 ">
+          <label for="itemQuantity" className="col-sm-2 col-form-label">
             Item Quantity
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="itemQuantity"
               placeholder="ItemQuantity"
               onChange={onchange} //to reflect changes in state

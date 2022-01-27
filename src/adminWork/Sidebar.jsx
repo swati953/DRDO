@@ -1,38 +1,49 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+
 
 export default function Sidebar() {
+  let location = useLocation();
+  useEffect(() => {
+    console.log(location.pathname);
+  }, [location]);
   return (
     // <div className="row">
     //   <div className="col-md-4">
         <div
-          class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+          className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
           style={{ width: " 280px;" }}
         >
           <Link to="/ahome"
-            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+            className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
           >
-            <i class="fas fa-user-cog bi me-2" width="40" height="32"></i>
-            {/* <img class="bi me-2" width="40" height="32" /> */}
-            <span class="fs-4">Welcome Admin</span>
+            <i className="fas fa-user-cog bi me-2" width="40" height="32"></i>
+            {/* <img className="bi me-2" width="40" height="32" /> */}
+            <span className="fs-4">Welcome Admin</span>
           </Link>
           <hr />
-          <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-              <Link to="/ahome" class="nav-link active" aria-current="page">
-                <i class="fas fa-store bi me-2" width="16" height="16"></i>
+          <ul className="nav nav-pills flex-column mb-auto">
+            <li className="nav-item">
+              <Link to="/ahome"  className={`nav-link ${
+                location.pathname === "/ahome" ? "active" : "text-white"
+              }`} aria-current="page">
+                <i className="fas fa-store bi me-2" width="16" height="16"></i>
                 All Item
               </Link>
             </li>
             <li>
-              <Link to="/additem" class="nav-link text-white">
-                <i class="fas fa-plus bi me-2" width="16" height="16"></i>
+              <Link to="/additem"  className={`nav-link ${
+                  location.pathname === "/additem" ? "active" : "text-white"
+                }`}>
+                <i className="fas fa-plus bi me-2" width="16" height="16"></i>
                 Add New Item
               </Link>
             </li>
             <li>
-              <Link to="/edit" class="nav-link text-white">
-                <i class="fas fa-edit bi me-2" width="16" height="16"></i>
+              <Link to="/edit"  className={`nav-link ${
+                  location.pathname === "/edit" ? "active" : "text-white"
+                }`}>
+                <i className="fas fa-edit bi me-2" width="16" height="16"></i>
                 Delete/Update Items
               </Link>
             </li>
