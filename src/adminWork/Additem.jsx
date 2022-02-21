@@ -14,7 +14,7 @@ export default function Additem(props) {
   const handleClick = (e) => {
     e.preventDefault(); //page reload ni hone dega
     console.log(item.itemName, item.itemQuantity);
-    addItem(item.itemName, item.itemQuantity); //calling add note by passing state variables as argumnets
+    addItem(item._id, item.itemName, item.itemQuantity); //calling add note by passing state variables as argumnets
     setItem({
       //ye islea kea takki akk bare add hone ke badd sare state clear ho jaye
       itemName: "",
@@ -45,6 +45,8 @@ export default function Additem(props) {
               onChange={onchange} //to reflect changes in state
               name="itemName" //use this to make changes
               value={item.itemName}
+              minLength={3}
+              required
             />
           </div>
         </div>
@@ -57,7 +59,7 @@ export default function Additem(props) {
               type="text"
               className="form-control"
               id="itemQuantity"
-              placeholder="ItemQuantity"
+              placeholder="itemQuantity"
               onChange={onchange} //to reflect changes in state
               name="itemQuantity" //use this to make changes
               value={item.itemQuantity}

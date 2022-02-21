@@ -1,16 +1,26 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function Navbar() {
   let location = useLocation();
   useEffect(() => {
     console.log(location.pathname);
   }, [location]);
+  let history = useHistory();
+  const logout = async (e) => {
+    e.preventDefault();
+    console.log("item is there" + localStorage.getItem("token"));
+    alert("You Login Out");
+    localStorage.clear();
+    history.push("/");
+    console.log("item is not there" + localStorage.getItem("token"));
+  };
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-         DRDO
+          DRDO
         </Link>
         <button
           className="navbar-toggler"
@@ -54,6 +64,9 @@ function Navbar() {
             <Link className="btn btn-warning mx-2" to="/sign" role="button">
               User Sign Up
             </Link>
+            <button class="btn  btn-warning mx-2" onClick={logout}>
+              Logout
+            </button>
           </form>
         </div>
       </div>

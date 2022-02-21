@@ -7,7 +7,7 @@ import CartContext from "../context/usercart/Usercontext";
 const Uhome = () => {
   const context = useContext(CartContext);
   let history = useHistory();
-  const { cart, getCartItems } = context;
+  const { cart, getCartItems,deleteItemFromCart } = context;
   useEffect(() => {
     if (localStorage.getItem("token")) {
       getCartItems();
@@ -46,6 +46,17 @@ const Uhome = () => {
                 <label htmlFor="" className="col-form-label">
                   {item.itemQuantity}
                 </label>
+              </div>
+              <div className="col-md-6">
+              <button
+                  type="submit"
+                  className="btn btn-primary"
+                  onClick={() => {
+                    deleteItemFromCart(item._id, item.itemName, item.itemQuantity);
+                  }}
+                >
+                  Remove item
+                </button>
               </div>
             </div>
           );

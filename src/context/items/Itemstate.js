@@ -23,7 +23,7 @@ const Itemstate = (props) => {
     console.log(json);
     setItem(json);
   };
-  const addItem = async (itemName, itemQuantity) => {
+  const addItem = async (id, itemName, itemQuantity) => {
     //Adding item
     const response = await fetch(`${host}/api/store/additem`, {
       method: "POST", //post request to add items
@@ -34,7 +34,7 @@ const Itemstate = (props) => {
         // "auth-token":
         //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjE2ZmY0MjI1MmFmZWIzNTdkYzZkZjQ1In0sImlhdCI6MTYzNDcyODg1M30.kjXX9uFiZ6MFzdg0ff_mQKAlHgI3TnWjMh7aGBGbIt0", // use just for checking compelet application
       },
-      body: JSON.stringify({ itemName, itemQuantity }), //converts a JavaScript object or value to a JSON string,
+      body: JSON.stringify({id, itemName, itemQuantity  }), //converts a JavaScript object or value to a JSON string,
     });
     const item1 = await response.json();
     console.log(item);
