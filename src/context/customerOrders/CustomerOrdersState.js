@@ -76,7 +76,7 @@ const CustomerOrderState = (props) => {
     console.log(item1, "item1");
     for (let index = 0; index < item1.length; index++) {
       const element = item1[index];
-      if (element._id === _id) {
+      if (element.itemId === _id) {
         item1[index].status = status;
 
         break;
