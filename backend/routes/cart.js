@@ -23,7 +23,7 @@ router.get('/fetchcartitem', fetchuser, async(req, res) => {
 router.post('/additemtocart', fetchuser, [
     body('itemId', 'enter a valid Item id'),
     body('itemName', 'enter a valid Item name').isLength({ min: 3 }),
-    body('itemQuantity', 'enter a valid Item Quantuty').isLength({ min: 1 }),
+    body('itemQuantity', 'enter a valid Item Quantity').isLength({ min: 1 }),
 ], async(req, res) => {
 
     try {

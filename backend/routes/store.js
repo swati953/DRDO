@@ -22,7 +22,7 @@ router.get('/fetchallitems', fetchuser, async(req, res) => {
 //adding item in store /api/store/additem
 router.post('/additem', fetchuser, [
         body('itemName', 'enter a valid Item name').isLength({ min: 3 }),
-        body('itemQuantity', 'enter a valid Item Quantuty').isLength({ min: 1 }),
+        body('itemQuantity', 'enter a valid Item Quantity').isLength({ min: 1 }),
     ], async(req, res) => {
 
         try {

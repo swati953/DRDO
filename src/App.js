@@ -24,6 +24,8 @@ import Addtocart from "./userwork/Addtocart";
 
 import Userstate from "./context/usercart/Userstate";
 import CustomerOrderState from "./context/customerOrders/CustomerOrdersState";
+import YourOrders from "./userwork/YourOrders";
+import CustomerOrders from "./adminWork/CustomerOrders";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -39,10 +41,10 @@ function App() {
   };
 
   return (
+      <CustomerOrderState>
     <Authstate>
-      <Userstate>
-        <Itemstate>
-          <CustomerOrderState>
+        <Userstate>
+          <Itemstate>
             <Router>
               <Navbar />
               <Alert alert={alert} />
@@ -75,12 +77,18 @@ function App() {
                 <Route exact path="/addtocart">
                   <Addtocart />
                 </Route>
+                <Route exact path="/YourOrder">
+                  <YourOrders />
+                </Route>
+                <Route exact path="/customerOrders">
+                  <CustomerOrders />
+                </Route>
               </Switch>
             </Router>
-          </CustomerOrderState>
-        </Itemstate>
-      </Userstate>
+          </Itemstate>
+        </Userstate>
     </Authstate>
+      </CustomerOrderState>
   );
 }
 

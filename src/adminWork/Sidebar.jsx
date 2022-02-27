@@ -47,6 +47,14 @@ export default function Sidebar() {
                 Delete/Update Items
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/customerOrders"  className={`nav-link ${
+                location.pathname === "/customerOrders" ? "active" : "text-white"
+              }`} aria-current="page">
+                <i className="fas fa-store bi me-2" width="16" height="16"></i>
+                Customer Orders
+              </Link>
+            </li>
           </ul>
           <hr />
         </div>

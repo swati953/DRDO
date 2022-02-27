@@ -4,10 +4,11 @@ import Sidebar from "./Sidebar";
 import { useHistory } from "react-router";
 
 import CartContext from "../context/usercart/Usercontext";
+import CustomerOrder from "../context/customerOrders/CustomerOrder";
 const Uhome = () => {
   const context = useContext(CartContext);
   let history = useHistory();
-  const { cart, getCartItems,deleteItemFromCart } = context;
+  const { cart, getCartItems, deleteItemFromCart } = context;
   useEffect(() => {
     if (localStorage.getItem("token")) {
       getCartItems();
@@ -15,12 +16,13 @@ const Uhome = () => {
       history.push("/login");
     }
   }, []);
-  console.log(cart + "<------------");
+  
   return (
     <div className="row">
       <div className="col-md-4">
         <Sidebar />
       </div>
+
       <div className="col-md-8">
         <div className="row mx-2 my-2">
           <table>
@@ -33,8 +35,10 @@ const Uhome = () => {
               </th>
             </tr>
           </table>
+          
         </div>
         {cart.map((item) => {
+          // {console.log(item,'item-cart');}
           return (
             <div className="row my-2">
               <div className="col-md-6">
@@ -48,11 +52,15 @@ const Uhome = () => {
                 </label>
               </div>
               <div className="col-md-6">
-              <button
+                <button
                   type="submit"
                   className="btn btn-primary"
                   onClick={() => {
-                    deleteItemFromCart(item._id, item.itemName, item.itemQuantity);
+                    deleteItemFromCart(
+                      item._id,
+                      item.itemName,
+                      item.itemQuantity
+                    );
                   }}
                 >
                   Remove item
