@@ -16,9 +16,9 @@ const CustomerOrders = () => {
     }
   }, []);
   const handleChangeStatus = (id, status) => {
-    console.log(id, "id is here", status, "status is here");
+    console.log("hahall");
 
-    changeStatus("621a329e8a4960365d12ed1f", "accepted");
+   // changeStatus("621a329e8a4960365d12ed1f", "accepted");
   };
   return (
     <div className="row">
@@ -61,12 +61,10 @@ const CustomerOrders = () => {
               </div>
               <div className="col-md-3">
                 <button
-                  onClick={() => {
-                    console.log("i am ", item._id);
-                    changeStatus(item._id, "accepted");
-                  }}
+                class="btn  btn-primary mx-2"
+                  onClick={handleChangeStatus(item._id,'accepeted')}
                 >
-                  Accepted
+                  Accepted 
                 </button>
               </div>
             </div>

@@ -15,8 +15,8 @@ const YourOrders = () => {
     }
   }, []);
   return (
-    <div className="row">
-      <div className="col-md-4">
+    <div className="row" style={{width:'100%',margin:'0'}}>
+      <div className="col-md-4 p-0" >
         <Sidebar />
       </div>
       <div className="col-md-8">

@@ -33,7 +33,7 @@ router.post('/additem', fetchuser, [
             }
             //  if there is no any error now use the desctructing concepyt of JS
             const { itemName, itemQuantity } = req.body;
-            if (req.user.id === "616ff42252afeb357dc6df45") {
+            if (req.user.id === "62c47bd643624664e6ecdc13") {
                 const storeitem = new Store({
                     itemName,
                     itemQuantity,
@@ -59,7 +59,7 @@ router.put('/updateitem/:id', fetchuser, async(req, res) => {
         //finding the notes to be upadted and upadte them too
         let note = await Store.findById(req.params.id);
         if (!note) { return res.status(404).send("Not found") }
-        if (req.user.id === "616ff42252afeb357dc6df45") {
+        if (req.user.id === "62c47bd643624664e6ecdc13") {
             note = await Store.findByIdAndUpdate(req.params.id, { $set: newNote }, { new: true })
             let note1 = await Cart.findByIdAndUpdate(req.params.id, { $set: newNote }, { new: true })
             res.json(note);
@@ -81,7 +81,7 @@ router.delete('/deleteitem/:id', fetchuser, async(req, res) => {
     try {
         let note = await Store.findById(req.params.id);
         if (!note) { return res.status(404).send("Not found") }
-        if (req.user.id === "616ff42252afeb357dc6df45") {
+        if (req.user.id === "62c47bd643624664e6ecdc13") {
             note = await Store.findOneAndDelete({ "_id": req.params.id })
             let note1 = await Cart.findOneAndDelete({ "itemId": req.params.id })
             res.json({ note: note, "success": "item has been deletd" });

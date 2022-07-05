@@ -73,7 +73,7 @@ const CustomerOrderState = (props) => {
     );
     const json = await response.json();
     let item1 = JSON.parse(JSON.stringify(customerOrder));
-    console.log(item1, "item1");
+    console.log(_id, "2item1");
     for (let index = 0; index < item1.length; index++) {
       const element = item1[index];
       if (element.itemId === _id) {

@@ -17,7 +17,7 @@ function Navbar() {
     console.log("item is not there" + localStorage.getItem("token"));
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{position:'sticky',top:'0px',width:'100%'}}>
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           DRDO

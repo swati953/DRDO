@@ -28,7 +28,7 @@ export default function Sidebar() {
     //   <div className="col-md-4">
     <div
       className="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
-      style={{ width: " 280px;" }}
+      style={{ width: " 100%",padding:'0' }}
     >
       <Link
         to="/uhome"

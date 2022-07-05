@@ -53,7 +53,7 @@ router.put('/updateCustomerOrders/:id', fetchuser, async(req, res) => {
         //finding the notes to be upadted and upadte them too
         let note = await CustomerOrders.findById(req.params.id);
         if (!note) { return res.status(404).send("Not found") }
-        if (req.user.id !== "616ff42252afeb357dc6df45") {
+        if (req.user.id !== "62c47bd643624664e6ecdc13") {
             return res.status(401).send("Not Allowded")
         }
         note = await CustomerOrders.findByIdAndUpdate(req.params.id, { $set: { status: status1 } })
@@ -69,7 +69,7 @@ router.delete('/deleteCustomerOrders/:id', fetchuser, async(req, res) => {
     try {
         let note = await CustomerOrders.findById(req.params.id);
         if (!note) { return res.status(404).send("Not found") }
-        if (req.user.id === "616ff42252afeb357dc6df45") {
+        if (req.user.id === "62c47bd643624664e6ecdc13") {
             note = await CustomerOrders.findOneAndDelete({ "_id": req.params.id })
                 // let note1 = await CustomerOrders.findOneAndDelete({ "itemId": req.params.id })
             res.json({ note: note, "success": "item has been deletd" });
